@@ -3,61 +3,1516 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ethos Meridian</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Andrews Lead Co. | Expert Lead Generation Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <style>
-        .hero {
+        :root {
+            --primary: #2C3E50;
+            --secondary: #E74C3C;
+            --accent: #3498DB;
+            --light: #ECF0F1;
+            --dark: #1A2530;
+            --highlight: #F39C12;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--dark);
+            color: white;
+            padding: 1.5rem;
             text-align: center;
-            margin: 4rem 0 5rem;
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            color: var(--highlight);
+            letter-spacing: 2px;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 300;
+        }
+        
+        .hero {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 100%);
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('/api/placeholder/1200/800');
+            background-size: cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         
         .hero h1 {
             font-size: 3.5rem;
-            letter-spacing: 0.05em;
             margin-bottom: 1.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.2;
         }
         
-        .tagline {
-            font-family: "Times New Roman", Times, serif;
-            font-style: italic;
-            font-size: 1.4rem;
-            color: #555;
+        .hero h2 {
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            font-weight: 400;
+        }
+        
+        .highlight-text {
+            color: var(--highlight);
+            font-weight: 700;
+            border-bottom: 3px solid var(--highlight);
+            padding-bottom: 5px;
+        }
+        
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
             margin-bottom: 3rem;
         }
         
-        .description {
-            font-size: 1.1rem;
-            max-width: 700px;
-            margin: 0 auto 3rem;
-            line-height: 1.8;
+        .stat {
+            display: flex;
+            flex-direction: column;
         }
         
-        .contact-info {
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--highlight);
+            line-height: 1;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 1.2rem 2.5rem;
+            font-size: 1.4rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button:hover {
+            background-color: var(--highlight);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(243, 156, 18, 0.5);
+        }
+        
+        .arrow {
+            margin-left: 10px;
+            transition: transform 0.3s;
+        }
+        
+        .cta-button:hover .arrow {
+            transform: translateX(5px);
+        }
+        
+        .benefits {
+            padding: 6rem 2rem;
+            background-color: white;
+            position: relative;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-tag {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 30px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--dark);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.3;
+        }
+        
+        .benefits-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto 3rem;
+        }
+        
+        .benefit-card {
+            flex: 1;
+            min-width: 300px;
+            max-width: 380px;
+            padding: 3rem 2rem;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+        
+        .benefit-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background-color: var(--secondary);
+            z-index: -1;
+            transition: width 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+        }
+        
+        .benefit-card:hover::before {
+            width: 100%;
+            opacity: 0.05;
+        }
+        
+        .benefit-icon {
+            margin-bottom: 1.5rem;
+            width: 80px;
+            height: 80px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: var(--light);
+            margin-bottom: 1.5rem;
+        }
+        
+        .benefit-title {
+            font-size: 1.6rem;
+            margin-bottom: 1.2rem;
+            color: var(--dark);
+            font-weight: 700;
+        }
+        
+        .benefit-tag {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background-color: var(--highlight);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            letter-spacing: 1px;
+        }
+        
+        .benefits-guarantee {
             text-align: center;
             margin-top: 4rem;
-            padding-top: 2rem;
-            border-top: 1px solid #eee;
         }
+        
+        .guarantee-badge {
+            display: inline-block;
+            background-color: var(--dark);
+            color: white;
+            font-weight: 700;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            margin-bottom: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .guarantee-badge::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -50%;
+            width: 40%;
+            height: 100%;
+            background: rgba(255,255,255,0.1);
+            transform: skewX(-25deg);
+            animation: shine 3s infinite;
+        }
+        
+        @keyframes shine {
+            0% { left: -50%; }
+            100% { left: 125%; }
+        }
+        
+        .guarantee-text {
+            position: relative;
+            z-index: 1;
+            letter-spacing: 1px;
+        }
+        
+        .expertise {
+            padding: 6rem 2rem;
+            background-color: var(--light);
+            position: relative;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--primary);
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+        
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto 4rem;
+        }
+        
+        .expertise-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 3px solid transparent;
+        }
+        
+        .expertise-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            border-bottom-color: var(--secondary);
+        }
+        
+        .expertise-icon {
+            margin-bottom: 1.5rem;
+            width: 64px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            background-color: rgba(52, 152, 219, 0.1);
+        }
+        
+        .expertise-title {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+        
+        .expertise-cta {
+            text-align: center;
+        }
+        
+        .secondary-cta-button {
+            display: inline-block;
+            background-color: transparent;
+            color: var(--dark);
+            border: 2px solid var(--secondary);
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s;
+        }
+        
+        .secondary-cta-button:hover {
+            background-color: var(--secondary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+        }
+        
+        .testimonials {
+            padding: 6rem 2rem;
+            background-color: white;
+            position: relative;
+        }
+        
+        .testimonial-slider {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .testimonial-card {
+            padding: 3rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+            margin: 0 auto 2rem;
+            position: relative;
+            display: none;
+        }
+        
+        .testimonial-card.active {
+            display: block;
+        }
+        
+        .testimonial-card::before {
+            content: """;
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            font-size: 8rem;
+            color: rgba(52, 152, 219, 0.1);
+            line-height: 1;
+            font-family: Georgia, serif;
+        }
+        
+        .testimonial-rating {
+            margin-bottom: 1.5rem;
+        }
+        
+        .star {
+            color: var(--highlight);
+            font-size: 1.5rem;
+            margin-right: 0.2rem;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            font-size: 1.4rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            color: var(--dark);
+            position: relative;
+            z-index: 1;
+            padding-left: 2rem;
+        }
+        
+        .testimonial-author-box {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        
+        .testimonial-author-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+        
+        .testimonial-author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--dark);
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+        
+        .testimonial-position {
+            color: var(--accent);
+            font-size: 0.9rem;
+        }
+        
+        .testimonial-result {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        
+        .result-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: var(--light);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            flex: 1;
+        }
+        
+        .result-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--secondary);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        
+        .result-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .testimonial-controls {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-top: 2rem;
+        }
+        
+        .testimonial-dot {
+            width: 12px;
+            height: 12px;
+            background-color: #ddd;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .testimonial-dot.active {
+            background-color: var(--accent);
+        }
+        
+        .contact {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('/api/placeholder/1200/800');
+            background-size: cover;
+            opacity: 0.05;
+            z-index: 0;
+        }
+        
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            gap: 3rem;
+        }
+        
+        .contact-content {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 2rem;
+        }
+        
+        .contact-tag {
+            display: inline-block;
+            background-color: var(--highlight);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 30px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-title {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+        
+        .contact-subtitle {
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            color: var(--highlight);
+            font-weight: 600;
+        }
+        
+        .contact-benefits {
+            margin-bottom: 2.5rem;
+        }
+        
+        .contact-benefit {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .check-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            background-color: var(--highlight);
+            color: white;
+            border-radius: 50%;
+            margin-right: 1rem;
+            flex-shrink: 0;
+            font-weight: bold;
+        }
+        
+        .contact-timer {
+            background-color: rgba(0,0,0,0.2);
+            border-radius: 10px;
+            padding: 1.5rem;
+            max-width: 400px;
+        }
+        
+        .timer-label {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .timer-units {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+        
+        .timer-unit {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+        }
+        
+        .timer-unit span:first-child {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--highlight);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        
+        .timer-unit span:last-child {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .form-container {
+            flex: 1;
+            min-width: 350px;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        
+        .form-header {
+            background-color: var(--highlight);
+            color: white;
+            padding: 1.2rem;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .form-spots {
+            position: relative;
+        }
+        
+        .form-spots::before,
+        .form-spots::after {
+            content: "🔥";
+            margin: 0 0.5rem;
+        }
+        
+        .contact-form {
+            padding: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+        
+        input, textarea, select {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+        
+        .submit-button {
+            width: 100%;
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            padding: 1.2rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+        }
+        
+        .submit-button:hover {
+            background-color: var(--highlight);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(243, 156, 18, 0.5);
+        }
+        
+        .submit-button::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+        
+        .submit-button:hover::after {
+            left: 100%;
+        }
+        
+        .form-disclaimer {
+            font-size: 0.8rem;
+            text-align: center;
+            margin-top: 1rem;
+            color: #777;
+        }
+        
+        .brands {
+            padding: 4rem 2rem;
+            background-color: var(--light);
+            text-align: center;
+        }
+        
+        .brands-title {
+            font-size: 1.4rem;
+            margin-bottom: 3rem;
+            color: var(--dark);
+            font-weight: 500;
+        }
+        
+        .brands-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .brand-logo {
+            opacity: 0.6;
+            transition: opacity 0.3s;
+        }
+        
+        .brand-logo:hover {
+            opacity: 1;
+        }
+        
+        .faq {
+            padding: 6rem 2rem;
+            background-color: white;
+        }
+        
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .faq-question {
+            padding: 1.5rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .faq-question h3 {
+            font-size: 1.3rem;
+            color: var(--dark);
+            font-weight: 600;
+        }
+        
+        .faq-toggle {
+            font-size: 1.8rem;
+            color: var(--accent);
+            font-weight: 300;
+            transition: transform 0.3s;
+        }
+        
+        .faq-answer {
+            padding: 0 0 1.5rem;
+            color: #666;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 0;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            gap: 3rem;
+        }
+        
+        .footer-logo {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .footer-logo .logo {
+            font-size: 2.5rem;
+            color: var(--highlight);
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+        }
+        
+        .footer-logo .tagline {
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-contact {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .footer-contact h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .footer-contact p {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-contact a {
+            color: var(--highlight);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-contact a:hover {
+            color: white;
+        }
+        
+        .footer-cta {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .footer-cta h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .footer-button {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .footer-button:hover {
+            background-color: var(--highlight);
+        }
+        
+        .footer-bottom {
+            padding: 1.5rem 2rem;
+            background-color: rgba(0,0,0,0.2);
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .footer-bottom a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-bottom a:hover {
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .expertise-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-container {
+                flex-direction: column;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .benefit-card {
+                min-width: 100%;
+            }
+            
+            .cta-button, .submit-button {
+                width: 100%;
+            }
+        }
+        
+        /* Simple animation for the landing page */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        /* Add some scroll animations */
+        .scroll-animation {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .scroll-animation.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Countdown Timer
+            function updateTimer() {
+                const now = new Date();
+                const hours = 23 - now.getHours();
+                const minutes = 59 - now.getMinutes();
+                const seconds = 59 - now.getSeconds();
+                
+                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+            }
+            
+            setInterval(updateTimer, 1000);
+            updateTimer();
+            
+            // FAQ Toggles
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                const answer = item.querySelector('.faq-answer');
+                const toggle = item.querySelector('.faq-toggle');
+                
+                // Initially hide answers
+                answer.style.display = 'none';
+                
+                question.addEventListener('click', () => {
+                    const isOpen = answer.style.display === 'block';
+                    
+                    // Close all FAQs
+                    faqItems.forEach(otherItem => {
+                        const otherAnswer = otherItem.querySelector('.faq-answer');
+                        const otherToggle = otherItem.querySelector('.faq-toggle');
+                        
+                        otherAnswer.style.display = 'none';
+                        otherToggle.textContent = '+';
+                        otherToggle.style.transform = 'rotate(0deg)';
+                    });
+                    
+                    // Toggle current FAQ
+                    if (!isOpen) {
+                        answer.style.display = 'block';
+                        toggle.textContent = '−';
+                        toggle.style.transform = 'rotate(180deg)';
+                    }
+                });
+            });
+            
+            // Testimonial Slider
+            const testimonialDots = document.querySelectorAll('.testimonial-dot');
+            const testimonialCards = document.querySelectorAll('.testimonial-card');
+            
+            testimonialDots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    // Hide all cards
+                    testimonialCards.forEach(card => {
+                        card.classList.remove('active');
+                    });
+                    
+                    // Remove active class from all dots
+                    testimonialDots.forEach(d => {
+                        d.classList.remove('active');
+                    });
+                    
+                    // Show selected card and activate dot
+                    testimonialCards[index].classList.add('active');
+                    dot.classList.add('active');
+                });
+            });
+            
+            // Auto rotate testimonials
+            let currentTestimonial = 0;
+            const autoRotate = setInterval(() => {
+                currentTestimonial = (currentTestimonial + 1) % testimonialCards.length;
+                
+                // Hide all cards
+                testimonialCards.forEach(card => {
+                    card.classList.remove('active');
+                });
+                
+                // Remove active class from all dots
+                testimonialDots.forEach(d => {
+                    d.classList.remove('active');
+                });
+                
+                // Show next card and activate dot
+                testimonialCards[currentTestimonial].classList.add('active');
+                testimonialDots[currentTestimonial].classList.add('active');
+            }, 5000);
+            
+            // Scroll animations
+            const scrollElements = document.querySelectorAll('.benefit-card, .expertise-card, .section-header');
+            
+            scrollElements.forEach(element => {
+                element.classList.add('scroll-animation');
+            });
+            
+            function handleScrollAnimation() {
+                scrollElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (elementTop < windowHeight * 0.85) {
+                        element.classList.add('visible');
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', handleScrollAnimation);
+            handleScrollAnimation();
+            
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
     </style>
 </head>
 <body>
-    <main>
-        <section class="hero">
-            <h1>ETHOS MERIDIAN</h1>
-            <div class="tagline">Financial Recovery with Integrity</div>
-            
-            <div class="description">
-                <p>Ethos Meridian specializes in the strategic acquisition and resolution of financial assets. We transform distressed debt portfolios through principled investment approaches and ethical recovery practices.</p>
+    <header>
+        <div class="logo animate__animated animate__fadeIn">ALC</div>
+        <div class="tagline animate__animated animate__fadeIn animate__delay-1s">Andrews Lead Co.</div>
+    </header>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="animate__animated animate__fadeInUp">STOP WASTING YOUR AD BUDGET</h1>
+            <h2 class="animate__animated animate__fadeInUp animate__delay-1s">We Generate <span class="highlight-text">QUALIFIED LEADS</span> That Actually Convert</h2>
+            <div class="hero-stats animate__animated animate__fadeInUp animate__delay-2s">
+                <div class="stat">
+                    <span class="stat-label">Increase</span> 
+                    <span class="stat-number">Client Retention</span>
                 
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Boost</span>
+                    <span class="stat-number">Conversion</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Lower</span>
+                    <span class="stat-number">Cost per Lead</span>
+                </div>
+            </div>
+            <a href="#contact" class="cta-button animate__animated animate__pulse animate__infinite animate__slower">Get Your FREE Strategy Session <span class="arrow">→</span></a>
+        </div>
+    </section>
+    
+    <section class="benefits">
+        <div class="section-header">
+            <span class="section-tag">EXCLUSIVE ADVANTAGE</span>
+            <h2 class="section-title">We Don't Just Generate Leads, We Generate RESULTS</h2>
+        </div>
+        <div class="benefits-container">
+            <div class="benefit-card">
+                <div class="benefit-icon"><img src="imgs/results_icon.png" alt="Results icon" /></div>
+                <h3 class="benefit-title">Achieve Higher Conversion Rates</h3>
+                <p>Our hyper-targeted approach delivers leads that are pre-qualified and ready to buy. No more wasted follow-ups.</p>
+                <div class="benefit-tag">PROVEN ROI</div>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon"><img src="imgs/target_icon.png" alt="Targeting icon" /></div>
+                <h3 class="benefit-title">Enterprise-Grade Targeting</h3>
+                <p>Same advanced tech used by Fortune 500 companies, now accessible for your business. We've managed $50M+ budgets.</p>
+                <div class="benefit-tag">PRECISION</div>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon"><img src="imgs/strategy_icon.png" alt="Strategy icon" /></div>
+                <h3 class="benefit-title">Done-For-You Lead System</h3>
+                <p>We handle everything: strategy, setup, optimization, and reporting. You just handle the influx of new business.</p>
+                <div class="benefit-tag">TURNKEY</div>
+            </div>
+        </div>
+        <div class="benefits-guarantee">
+            <div class="guarantee-badge">
+                <span class="guarantee-text">100% SATISFACTION GUARANTEE</span>
+            </div>
+            <p>If we don't improve your lead quality in 60 days, you don't pay.</p>
+        </div>
+    </section>
+    
+    <section class="expertise">
+        <div class="section-header">
+            <span class="section-tag">INSIDER ACCESS</span>
+            <h2 class="section-title">Leverage the Same Strategies Used by Leading Brands</h2>
+            <p class="section-subtitle">From Fortune 500 companies to fast-growing startups, our proven methodology delivers results</p>
+        </div>
+        
+        <div class="expertise-grid">
+            <div class="expertise-card">
+                <div class="expertise-icon">
+                    <img src="/api/placeholder/64/64" alt="Media strategy icon" />
+                </div>
+                <h3 class="expertise-title">Multi-Platform Strategy</h3>
+                <p>Integrated campaigns across Display, DSP, Social Media, Search & more for maximum reach & efficiency.</p>
             </div>
             
-            <a href="#contact" class="button">Contact Us</a>
-        </section>
-        
-        <div class="contact-info" id="contact">
-            <p>For partnership inquiries: <span class="text-bold">contact@ethosmeridian.com</span></p>
-            <p>&copy; <script>document.write(new Date().getFullYear())</script> Ethos Meridian. All rights reserved.</p>
+            <div class="expertise-card">
+                <div class="expertise-icon">
+                    <img src="/api/placeholder/64/64" alt="Data analysis icon" />
+                </div>
+                <h3 class="expertise-title">Predictive Analytics</h3>
+                <p>Advanced data modeling that predicts which prospects are most likely to convert into high-value customers.</p>
+            </div>
+            
+            <div class="expertise-card">
+                <div class="expertise-icon">
+                    <img src="/api/placeholder/64/64" alt="Targeting icon" />
+                </div>
+                <h3 class="expertise-title">Hyper-Targeting</h3>
+                <p>Laser-focused audience segmentation that connects with your ideal customers at the perfect moment.</p>
+            </div>
+            
+            <div class="expertise-card">
+                <div class="expertise-icon">
+                    <img src="/api/placeholder/64/64" alt="Budget icon" />
+                </div>
+                <h3 class="expertise-title">Budget Optimization</h3>
+                <p>Experienced in managing $50M+ budgets with sophisticated allocation to maximize ROI.</p>
+            </div>
+            
+            <div class="expertise-card">
+                <div class="expertise-icon">
+                    <img src="/api/placeholder/64/64" alt="Conversion icon" />
+                </div>
+                <h3 class="expertise-title">Conversion Rate Mastery</h3>
+                <p>Proven techniques that turn clicks into customers with sophisticated landing page & funnel strategies.</p>
+            </div>
+            
+            <div class="expertise-card">
+                <div class="expertise-icon">
+                    <img src="/api/placeholder/64/64" alt="Report icon" />
+                </div>
+                <h3 class="expertise-title">Transparent Reporting</h3>
+                <p>Real-time dashboards that show exactly what's working, what's not, and the ROI on every dollar spent.</p>
+            </div>
         </div>
-    </main>
+        
+        <div class="expertise-cta">
+            <a href="#contact" class="secondary-cta-button">Learn How These Strategies Can Work For You <span class="arrow">→</span></a>
+        </div>
+    </section>
+    
+    <section class="testimonials">
+        <div class="section-header">
+            <span class="section-tag">SUCCESS STORIES</span>
+            <h2 class="section-title">Real Results From Real Clients</h2>
+        </div>
+        
+        <div class="testimonial-slider">
+            <div class="testimonial-card active">
+                <div class="testimonial-rating">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                </div>
+                <p class="testimonial-text">"Andrews Lead Co. transformed our entire lead generation strategy. Within just 90 days, we saw a 35% increase in qualified leads and a 20% reduction in cost per acquisition. The ROI has been incredible."</p>
+                <div class="testimonial-author-box">
+                    <div class="testimonial-author-image">
+                        <img src="/api/placeholder/60/60" alt="Client" />
+                    </div>
+                    <div class="testimonial-author-info">
+                        <p class="testimonial-author">Sarah Johnson</p>
+                        <p class="testimonial-position">Marketing Director, TechSolutions Inc.</p>
+                    </div>
+                </div>
+                <div class="testimonial-result">
+                    <div class="result-box">
+                        <span class="result-number">35%</span>
+                        <span class="result-label">More Leads</span>
+                    </div>
+                    <div class="result-box">
+                        <span class="result-number">20%</span>
+                        <span class="result-label">Lower CPA</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="testimonial-rating">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                </div>
+                <p class="testimonial-text">"After struggling with inconsistent lead quality for years, ALC completely turned things around for us. Their targeting is so precise that our sales team's close rate improved by 40%. The leads were already pre-qualified and ready to buy."</p>
+                <div class="testimonial-author-box">
+                    <div class="testimonial-author-image">
+                        <img src="/api/placeholder/60/60" alt="Client" />
+                    </div>
+                    <div class="testimonial-author-info">
+                        <p class="testimonial-author">Michael Reynolds</p>
+                        <p class="testimonial-position">CEO, GrowthPartners Agency</p>
+                    </div>
+                </div>
+                <div class="testimonial-result">
+                    <div class="result-box">
+                        <span class="result-number">40%</span>
+                        <span class="result-label">Higher Close Rate</span>
+                    </div>
+                    <div class="result-box">
+                        <span class="result-number">3X</span>
+                        <span class="result-label">ROI</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-controls">
+                <span class="testimonial-dot active"></span>
+                <span class="testimonial-dot"></span>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact" class="contact">
+        <div class="contact-container">
+            <div class="contact-content">
+                <span class="contact-tag">LIMITED TIME OFFER</span>
+                <h2 class="contact-title">Get Your FREE Lead Generation Strategy Session</h2>
+                <p class="contact-subtitle">Worth $1,500 – Yours at No Cost, No Obligation</p>
+                
+                <div class="contact-benefits">
+                    <div class="contact-benefit">
+                        <span class="check-icon">✓</span>
+                        <span>Custom lead generation blueprint for your business</span>
+                    </div>
+                    <div class="contact-benefit">
+                        <span class="check-icon">✓</span>
+                        <span>Competitor analysis & market opportunity assessment</span>
+                    </div>
+                    <div class="contact-benefit">
+                        <span class="check-icon">✓</span>
+                        <span>30-day action plan you can implement immediately</span>
+                    </div>
+                </div>
+                
+                <div class="contact-timer">
+                    <div class="timer-label">This Offer Expires In:</div>
+                    <div class="timer-units">
+                        <div class="timer-unit">
+                            <span id="hours">24</span>
+                            <span>Hours</span>
+                        </div>
+                        <div class="timer-unit">
+                            <span id="minutes">00</span>
+                            <span>Minutes</span>
+                        </div>
+                        <div class="timer-unit">
+                            <span id="seconds">00</span>
+                            <span>Seconds</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-container">
+                <div class="form-header">
+                    <span class="form-spots">Only 3 spots available this week</span>
+                </div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="Your Full Name *" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="company" placeholder="Company Name *" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="Email Address *" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="phone" placeholder="Phone Number *" required>
+                    </div>
+                    <div class="form-group">
+                        <select id="budget">
+                            <option value="" disabled selected>Select Your Monthly Ad Budget *</option>
+                            <option value="under10k">Under $10,000</option>
+                            <option value="10k-25k">$10,000 - $25,000</option>
+                            <option value="25k-50k">$25,000 - $50,000</option>
+                            <option value="50k-100k">$50,000 - $100,000</option>
+                            <option value="over100k">Over $100,000</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" rows="3" placeholder="What's your biggest lead generation challenge right now?"></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">CLAIM YOUR FREE STRATEGY SESSION NOW</button>
+                    <p class="form-disclaimer">We respect your privacy. Your information will never be shared or sold.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <section class="brands">
+        <div class="section-header">
+            <h3 class="brands-title">Trusted by Companies Across Industries</h3>
+        </div>
+        <div class="brands-container">
+            <div class="brand-logo"><img src="/api/placeholder/120/50" alt="Brand Logo" /></div>
+            <div class="brand-logo"><img src="/api/placeholder/120/50" alt="Brand Logo" /></div>
+            <div class="brand-logo"><img src="/api/placeholder/120/50" alt="Brand Logo" /></div>
+            <div class="brand-logo"><img src="/api/placeholder/120/50" alt="Brand Logo" /></div>
+            <div class="brand-logo"><img src="/api/placeholder/120/50" alt="Brand Logo" /></div>
+        </div>
+    </section>
+
+    <section class="faq">
+        <div class="section-header">
+            <span class="section-tag">COMMON QUESTIONS</span>
+            <h2 class="section-title">Frequently Asked Questions</h2>
+        </div>
+        
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>How quickly can I expect to see results?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Most clients begin seeing improved lead quality within the first 2 weeks, with significant ROI improvements typically appearing within 30-60 days. Our approach focuses on both quick wins and sustainable long-term growth.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>What makes your lead generation different from others?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We combine enterprise-level strategies (previously only available to Fortune 500 companies) with hyper-targeted audience segmentation. This approach means you're not just getting more leads – you're getting the RIGHT leads that convert at much higher rates.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Do I need a minimum budget to work with you?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>While we can adapt our strategies to various budget levels, we typically work with companies investing at least $5,000 monthly in their lead generation efforts. This ensures we have enough resources to implement a comprehensive strategy that delivers meaningful results.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>What industries do you specialize in?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We've successfully generated high-quality leads across B2B technology, professional services, healthcare, finance, and e-commerce. Our methodology adapts to your specific industry and target audience for maximum effectiveness.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <div class="logo">ALC</div>
+                <div class="tagline">Andrews Lead Co.</div>
+            </div>
+            
+            <div class="footer-contact">
+                <h3>Get In Touch</h3>
+                <p><strong>Email:</strong> andrewjaquez95@gmail.com</p>
+                <p><strong>Phone:</strong> 917-232-3891</p>
+                <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/andrewjaquez" target="_blank">linkedin.com/in/andrewjaquez</a></p>
+            </div>
+            
+            <div class="footer-cta">
+                <h3>Ready to Scale Your Business?</h3>
+                <a href="#contact" class="footer-button">Get Started Now</a>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Andrews Lead Co. All rights reserved.</p>
+            <p>
+                <a href="#">Privacy Policy</a> | 
+                <a href="#">Terms of Service</a>
+            </p>
+        </div>
+    </footer>
 </body>
 </html>

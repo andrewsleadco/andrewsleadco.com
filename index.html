@@ -394,147 +394,6 @@
             box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
         }
         
-        .testimonials {
-            padding: 6rem 2rem;
-            background-color: white;
-            position: relative;
-        }
-        
-        .testimonial-slider {
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-        }
-        
-        .testimonial-card {
-            padding: 3rem;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
-            margin: 0 auto 2rem;
-            position: relative;
-            display: none;
-        }
-        
-        .testimonial-card.active {
-            display: block;
-        }
-        
-        .testimonial-card::before {
-            content: """;
-            position: absolute;
-            top: 2rem;
-            left: 2rem;
-            font-size: 8rem;
-            color: rgba(52, 152, 219, 0.1);
-            line-height: 1;
-            font-family: Georgia, serif;
-        }
-        
-        .testimonial-rating {
-            margin-bottom: 1.5rem;
-        }
-        
-        .star {
-            color: var(--highlight);
-            font-size: 1.5rem;
-            margin-right: 0.2rem;
-        }
-        
-        .testimonial-text {
-            font-style: italic;
-            font-size: 1.4rem;
-            line-height: 1.6;
-            margin-bottom: 2rem;
-            color: var(--dark);
-            position: relative;
-            z-index: 1;
-            padding-left: 2rem;
-        }
-        
-        .testimonial-author-box {
-            display: flex;
-            align-items: center;
-            margin-bottom: 2rem;
-        }
-        
-        .testimonial-author-image {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin-right: 1rem;
-            flex-shrink: 0;
-        }
-        
-        .testimonial-author-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .testimonial-author {
-            font-weight: 700;
-            color: var(--dark);
-            font-size: 1.2rem;
-            margin-bottom: 0.3rem;
-        }
-        
-        .testimonial-position {
-            color: var(--accent);
-            font-size: 0.9rem;
-        }
-        
-        .testimonial-result {
-            display: flex;
-            gap: 2rem;
-            margin-top: 1rem;
-        }
-        
-        .result-box {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background-color: var(--light);
-            padding: 1rem 1.5rem;
-            border-radius: 8px;
-            flex: 1;
-        }
-        
-        .result-number {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--secondary);
-            line-height: 1;
-            margin-bottom: 0.5rem;
-        }
-        
-        .result-label {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .testimonial-controls {
-            display: flex;
-            justify-content: center;
-            gap: 0.8rem;
-            margin-top: 2rem;
-        }
-        
-        .testimonial-dot {
-            width: 12px;
-            height: 12px;
-            background-color: #ddd;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        
-        .testimonial-dot.active {
-            background-color: var(--accent);
-        }
-        
         .contact {
             padding: 6rem 2rem;
             background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
@@ -622,46 +481,6 @@
             margin-right: 1rem;
             flex-shrink: 0;
             font-weight: bold;
-        }
-        
-        .contact-timer {
-            background-color: rgba(0,0,0,0.2);
-            border-radius: 10px;
-            padding: 1.5rem;
-            max-width: 400px;
-        }
-        
-        .timer-label {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-        
-        .timer-units {
-            display: flex;
-            justify-content: space-between;
-            gap: 1rem;
-        }
-        
-        .timer-unit {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            flex: 1;
-        }
-        
-        .timer-unit span:first-child {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--highlight);
-            line-height: 1;
-            margin-bottom: 0.5rem;
-        }
-        
-        .timer-unit span:last-child {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
         }
         
         .form-container {
@@ -1014,138 +833,45 @@
             opacity: 1;
             transform: translateY(0);
         }
-    </style>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Countdown Timer
-            function updateTimer() {
-                const now = new Date();
-                const hours = 23 - now.getHours();
-                const minutes = 59 - now.getMinutes();
-                const seconds = 59 - now.getSeconds();
-                
-                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
-            }
-            
-            setInterval(updateTimer, 1000);
-            updateTimer();
-            
-            // FAQ Toggles
-            const faqItems = document.querySelectorAll('.faq-item');
-            
-            faqItems.forEach(item => {
-                const question = item.querySelector('.faq-question');
-                const answer = item.querySelector('.faq-answer');
-                const toggle = item.querySelector('.faq-toggle');
-                
-                // Initially hide answers
-                answer.style.display = 'none';
-                
-                question.addEventListener('click', () => {
-                    const isOpen = answer.style.display === 'block';
-                    
-                    // Close all FAQs
-                    faqItems.forEach(otherItem => {
-                        const otherAnswer = otherItem.querySelector('.faq-answer');
-                        const otherToggle = otherItem.querySelector('.faq-toggle');
-                        
-                        otherAnswer.style.display = 'none';
-                        otherToggle.textContent = '+';
-                        otherToggle.style.transform = 'rotate(0deg)';
-                    });
-                    
-                    // Toggle current FAQ
-                    if (!isOpen) {
-                        answer.style.display = 'block';
-                        toggle.textContent = '−';
-                        toggle.style.transform = 'rotate(180deg)';
-                    }
-                });
-            });
-            
-            // Testimonial Slider
-            const testimonialDots = document.querySelectorAll('.testimonial-dot');
-            const testimonialCards = document.querySelectorAll('.testimonial-card');
-            
-            testimonialDots.forEach((dot, index) => {
-                dot.addEventListener('click', () => {
-                    // Hide all cards
-                    testimonialCards.forEach(card => {
-                        card.classList.remove('active');
-                    });
-                    
-                    // Remove active class from all dots
-                    testimonialDots.forEach(d => {
-                        d.classList.remove('active');
-                    });
-                    
-                    // Show selected card and activate dot
-                    testimonialCards[index].classList.add('active');
-                    dot.classList.add('active');
-                });
-            });
-            
-            // Auto rotate testimonials
-            let currentTestimonial = 0;
-            const autoRotate = setInterval(() => {
-                currentTestimonial = (currentTestimonial + 1) % testimonialCards.length;
-                
-                // Hide all cards
-                testimonialCards.forEach(card => {
-                    card.classList.remove('active');
-                });
-                
-                // Remove active class from all dots
-                testimonialDots.forEach(d => {
-                    d.classList.remove('active');
-                });
-                
-                // Show next card and activate dot
-                testimonialCards[currentTestimonial].classList.add('active');
-                testimonialDots[currentTestimonial].classList.add('active');
-            }, 5000);
-            
-            // Scroll animations
-            const scrollElements = document.querySelectorAll('.benefit-card, .expertise-card, .section-header');
-            
-            scrollElements.forEach(element => {
-                element.classList.add('scroll-animation');
-            });
-            
-            function handleScrollAnimation() {
-                scrollElements.forEach(element => {
-                    const elementTop = element.getBoundingClientRect().top;
-                    const windowHeight = window.innerHeight;
-                    
-                    if (elementTop < windowHeight * 0.85) {
-                        element.classList.add('visible');
-                    }
-                });
-            }
-            
-            window.addEventListener('scroll', handleScrollAnimation);
-            handleScrollAnimation();
-            
-            // Smooth scroll for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-                    
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-        });
-    </script>
+
+        /* Add success and error message styling */
+        .form-message {
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            text-align: center;
+            display: none;
+        }
+        
+        .form-success {
+            background-color: rgba(39, 174, 96, 0.1);
+            color: #27ae60;
+            border: 1px solid #27ae60;
+        }
+        
+        .form-error {
+            background-color: rgba(231, 76, 60, 0.1);
+            color: #e74c3c;
+            border: 1px solid #e74c3c;
+        }
+        
+        /* Add loading spinner */
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+            margin-right: 10px;
+            vertical-align: middle;
+            display: none;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body>
@@ -1253,81 +979,7 @@
             <a href="#contact" class="secondary-cta-button">Learn How These Strategies Can Work For You <span class="arrow">→</span></a>
         </div>
     </section>
-  <!--Commenting out testimonials until we get more of these 
-    <section class="testimonials">
-        <div class="section-header">
-            <span class="section-tag">SUCCESS STORIES</span>
-            <h2 class="section-title">Real Results From Real Clients</h2>
-        </div>
-        
-        <div class="testimonial-slider">
-            <div class="testimonial-card active">
-                <div class="testimonial-rating">
-                    <span class="star">★</span>
-                    <span class="star">★</span>
-                    <span class="star">★</span>
-                    <span class="star">★</span>
-                    <span class="star">★</span>
-                </div>
-                <p class="testimonial-text">"Andrews Lead Co. transformed our entire lead generation strategy. Within just 90 days, we saw a 35% increase in qualified leads and a 20% reduction in cost per acquisition. The ROI has been incredible."</p>
-                <div class="testimonial-author-box">
-                    <div class="testimonial-author-image">
-                        <img src="/api/placeholder/60/60" alt="Client" />
-                    </div>
-                    <div class="testimonial-author-info">
-                        <p class="testimonial-author">Sarah Johnson</p>
-                        <p class="testimonial-position">Marketing Director, TechSolutions Inc.</p>
-                    </div>
-                </div>
-                <div class="testimonial-result">
-                    <div class="result-box">
-                        <span class="result-number">35%</span>
-                        <span class="result-label">More Leads</span>
-                    </div>
-                    <div class="result-box">
-                        <span class="result-number">20%</span>
-                        <span class="result-label">Lower CPA</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="testimonial-card">
-                <div class="testimonial-rating">
-                    <span class="star">★</span>
-                    <span class="star">★</span>
-                    <span class="star">★</span>
-                    <span class="star">★</span>
-                    <span class="star">★</span>
-                </div>
-                <p class="testimonial-text">"After struggling with inconsistent lead quality for years, ALC completely turned things around for us. Their targeting is so precise that our sales team's close rate improved by 40%. The leads were already pre-qualified and ready to buy."</p>
-                <div class="testimonial-author-box">
-                    <div class="testimonial-author-image">
-                        <img src="/api/placeholder/60/60" alt="Client" />
-                    </div>
-                    <div class="testimonial-author-info">
-                        <p class="testimonial-author">Michael Reynolds</p>
-                        <p class="testimonial-position">CEO, GrowthPartners Agency</p>
-                    </div>
-                </div>
-                <div class="testimonial-result">
-                    <div class="result-box">
-                        <span class="result-number">40%</span>
-                        <span class="result-label">Higher Close Rate</span>
-                    </div>
-                    <div class="result-box">
-                        <span class="result-number">3X</span>
-                        <span class="result-label">ROI</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="testimonial-controls">
-                <span class="testimonial-dot active"></span>
-                <span class="testimonial-dot"></span>
-            </div>
-        </div>
-    </section>
-    -->  
+
     <section id="contact" class="contact">
         <div class="contact-container">
             <div class="contact-content">
@@ -1349,45 +1001,27 @@
                         <span>30-day action plan you can implement immediately</span>
                     </div>
                 </div>
-                <!--commenting out timer
-                <div class="contact-timer">
-                    <div class="timer-label">This Offer Expires In:</div>
-                    <div class="timer-units">
-                        <div class="timer-unit">
-                            <span id="hours">24</span>
-                            <span>Hours</span>
-                        </div>
-                        <div class="timer-unit">
-                            <span id="minutes">00</span>
-                            <span>Minutes</span>
-                        </div>
-                        <div class="timer-unit">
-                            <span id="seconds">00</span>
-                            <span>Seconds</span>
-                        </div>
-                    </div>
-                </div>
             </div>
-            -->
+            
             <div class="form-container">
                 <div class="form-header">
                     <span class="form-spots">Get a FREE strategy session</span>
                 </div>
-                <form class="contact-form">
+                <form id="leadForm" class="contact-form">
                     <div class="form-group">
-                        <input type="text" id="name" placeholder="Your Full Name *" required>
+                        <input type="text" id="name" name="name" placeholder="Your Full Name *" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" id="company" placeholder="Company Name *" required>
+                        <input type="text" id="company" name="company" placeholder="Company Name *" required>
                     </div>
                     <div class="form-group">
-                        <input type="email" id="email" placeholder="Email Address *" required>
+                        <input type="email" id="email" name="email" placeholder="Email Address *" required>
                     </div>
                     <div class="form-group">
-                        <input type="tel" id="phone" placeholder="Phone Number *" required>
+                        <input type="tel" id="phone" name="phone" placeholder="Phone Number *" required>
                     </div>
                     <div class="form-group">
-                        <select id="budget">
+                        <select id="budget" name="budget" required>
                             <option value="" disabled selected>Select Your Monthly Ad Budget *</option>
                             <option value="under10k">Under $10,000</option>
                             <option value="10k-25k">$10,000 - $25,000</option>
@@ -1397,9 +1031,18 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <textarea id="message" rows="3" placeholder="What's your biggest lead generation challenge right now?"></textarea>
+                        <textarea id="message" name="message" rows="3" placeholder="What's your biggest lead generation challenge right now?"></textarea>
                     </div>
-                    <button type="submit" class="submit-button">CLAIM YOUR FREE STRATEGY SESSION NOW</button>
+                    <button type="submit" class="submit-button">
+                        <span class="spinner" id="submitSpinner"></span>
+                        <span id="submitText">CLAIM YOUR FREE STRATEGY SESSION NOW</span>
+                    </button>
+                    <div id="formSuccess" class="form-message form-success">
+                        Thank you! Your submission has been received. We'll contact you shortly.
+                    </div>
+                    <div id="formError" class="form-message form-error">
+                        There was an error submitting your form. Please try again.
+                    </div>
                     <p class="form-disclaimer">We respect your privacy. Your information will never be shared or sold.</p>
                 </form>
             </div>
@@ -1495,5 +1138,10 @@
             </p>
         </div>
     </footer>
+
+    <!-- Include Supabase JS Library and your form handler script -->
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <!-- Then include your form handler script -->
+    <script src="form-handler.js"></script>
 </body>
 </html>

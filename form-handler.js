@@ -3,8 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Form handler script loaded');
     
     // Supabase configuration
-    const supabaseUrl = 'YOUR_SUPABASE_URL'; // Replace with your actual URL
-    const supabaseKey = 'YOUR_SUPABASE_ANON_KEY'; // Replace with your actual key
+    const supabaseUrl = 'https://fpvreeivdbwhluculvsr.supabase.co'; // Replace with your actual URL
+    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZwdnJlZWl2ZGJ3aGx1Y3VsdnNyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzI0NjUyMTksImV4cCI6MjA0ODA0MTIxOX0.GwlsV6wNqwZk4VgBfVtYiWEBD15k-euHFyQnzhzdZP0'; // Replace with your actual key
     
     console.log('Supabase configuration:', { url: supabaseUrl, key: supabaseKey.substring(0, 5) + '...' });
     

@@ -1,27 +1,42 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // For debugging, let's log that the script is loaded
+    console.log('Form handler script loaded');
+    
+    // Supabase configuration
+    const supabaseUrl = 'YOUR_SUPABASE_URL'; // Replace with your actual URL
+    const supabaseKey = 'YOUR_SUPABASE_ANON_KEY'; // Replace with your actual key
+    
+    console.log('Supabase configuration:', { url: supabaseUrl, key: supabaseKey.substring(0, 5) + '...' });
+    
     // Initialize Supabase client
-    const supabaseUrl = 'https://fpvreeivdbwhluculvsr.supabase.co'; // Replace with your Supabase URL
-    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZwdnJlZWl2ZGJ3aGx1Y3VsdnNyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzI0NjUyMTksImV4cCI6MjA0ODA0MTIxOX0.GwlsV6wNqwZk4VgBfVtYiWEBD15k-euHFyQnzhzdZP0'; // Replace with your Supabase anon key
-    const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+    // This properly creates a new client rather than using the global 'supabase'
+    const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
+    
+    console.log('Supabase client created');
     
     // Handle form submission
     const leadForm = document.getElementById('leadForm');
-    const submitSpinner = document.getElementById('submitSpinner');
-    const submitText = document.getElementById('submitText');
-    const formSuccess = document.getElementById('formSuccess');
-    const formError = document.getElementById('formError');
     
     if (leadForm) {
+        console.log('Form found, adding event listener');
+        
         leadForm.addEventListener('submit', async function(e) {
+            console.log('Form submitted');
+            // Prevent the default form submission which refreshes the page
             e.preventDefault();
             
+            const submitSpinner = document.getElementById('submitSpinner');
+            const submitText = document.getElementById('submitText');
+            const formSuccess = document.getElementById('formSuccess');
+            const formError = document.getElementById('formError');
+            
             // Show loading state
-            submitSpinner.style.display = 'inline-block';
-            submitText.textContent = 'SUBMITTING...';
+            if (submitSpinner) submitSpinner.style.display = 'inline-block';
+            if (submitText) submitText.textContent = 'SUBMITTING...';
             
             // Hide previous messages
-            formSuccess.style.display = 'none';
-            formError.style.display = 'none';
+            if (formSuccess) formSuccess.style.display = 'none';
+            if (formError) formError.style.display = 'none';
             
             try {
                 // Get form data
@@ -36,25 +51,34 @@ document.addEventListener('DOMContentLoaded', function() {
                     status: 'new'
                 };
                 
+                console.log('Submitting data to Supabase:', formData);
+                
                 // Insert into Supabase
-                const { data, error } = await supabase
+                const { data, error } = await supabaseClient
                     .from('leads')
                     .insert([formData]);
                 
-                if (error) throw error;
+                if (error) {
+                    console.error('Supabase error:', error);
+                    throw error;
+                }
+                
+                console.log('Supabase success:', data);
                 
                 // Show success message
-                formSuccess.style.display = 'block';
+                if (formSuccess) formSuccess.style.display = 'block';
                 leadForm.reset();
             } catch (error) {
                 console.error('Error submitting form:', error);
-                formError.style.display = 'block';
+                if (formError) formError.style.display = 'block';
             } finally {
                 // Reset button state
-                submitSpinner.style.display = 'none';
-                submitText.textContent = 'CLAIM YOUR FREE STRATEGY SESSION NOW';
+                if (submitSpinner) submitSpinner.style.display = 'none';
+                if (submitText) submitText.textContent = 'CLAIM YOUR FREE STRATEGY SESSION NOW';
             }
         });
+    } else {
+        console.error('Form element not found: #leadForm');
     }
     
     // FAQ Toggles
